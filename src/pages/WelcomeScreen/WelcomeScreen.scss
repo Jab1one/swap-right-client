@@ -1,0 +1,108 @@
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/global" ;
+
+.welcome-card {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(254, 255, 250);
+}
+
+.welcome-container {
+  display: flex;
+  background-color: rgb(250, 254, 255);
+  flex-direction: column;
+  margin: 6.6rem 0 2.4rem 0;
+  min-width: 40rem;
+  width: 45%;
+  align-items: center;
+  box-shadow: rgba(160, 114, 54, 0.2) 0px 2px 8px 0px;
+  border-radius: 25px;
+}
+
+
+.links-container {
+  display: flex;
+  justify-content: center;
+  min-width: 40rem;
+  
+  border-radius: 30px;
+  color: rgb(37, 77, 64);
+
+  &:hover {
+    background-color: rgb(255, 249, 236);
+  }
+}
+.logo-container {
+  margin-top: 1.8rem;
+  display: flex;
+  justify-content: center;
+  background-image: url("../../assets/images/right3.png");
+  width: 100%;
+  animation: pulse 2s;
+  animation-delay: 0.35s;
+  animation-iteration-count: 1;
+  background-size: 75%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@keyframes pulse {
+  0% {
+    background-size: 75%;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  50% {
+    background-size:95%;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  100% {
+    background-size: 75%;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+
+.swap-logo {
+  animation: bouncein 1.2s;
+  animation-iteration-count: 1;
+
+}
+
+@keyframes bouncein {
+  0% {
+    transform : translateX(-220%);
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: skew(15deg);
+  }
+
+  75% {
+    transform : translateX(0%);
+    transform:skew(-15deg);
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.login {
+
+font-family: "Quicksand";
+font-size: 2rem;
+line-height: 2.5rem;
+}
+
+.login-link {
+  color: rgb(255, 120, 9);
+}
