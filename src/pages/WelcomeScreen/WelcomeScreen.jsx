@@ -1,6 +1,6 @@
 import "./WelcomeScreen.scss"
 import logo from "../../assets/images/right4.png"
-import { useParams, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const WelcomeScreen = ()=> {
   return (
