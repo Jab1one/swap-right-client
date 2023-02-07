@@ -8,7 +8,7 @@ const Login = ()=> {
 
         <input type='text' className="login-form__username" id="username" placeholder="Username" required></input>
         
-        <input type='text' className="login-form__password" id="password" placeholder="Password" required></input>
+        <input type='password' className="login-form__password" id="password" placeholder="Password" required></input>
         
         <div className="logged-container">
           <label for="keeploged" className="login-form__label">Keep me logged in:</label>
