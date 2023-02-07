@@ -1,0 +1,78 @@
+@use "../../styles/partials/global" ;
+
+.login-form-container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(254, 255, 250);
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 45%;
+  padding: 2.6rem;
+  background-color: rgb(250, 254, 255);
+  box-shadow: rgba(160, 114, 54, 0.2) 0px 2px 8px 0px;
+  border-radius: 25px;
+
+
+  &__username {
+    margin-bottom: 2.6rem;
+  }
+
+  &__button {
+    width: 30%;
+    color:white;
+    padding: 1.2rem 2.6rem;
+    background-color: rgb(238, 184, 84);
+    border-radius: 25px;
+    border: 1px solid rgb(240, 192, 104);
+    font-family: "QuickSand";
+    font-size: 1.6rem;
+  
+    &:hover {
+      background-color: rgb(243, 114, 55);
+    }
+  }
+
+  &__label {
+    margin-bottom: 0.2rem;
+  }
+}
+
+.login-form__username, .login-form__password {
+  width: 100%;
+  background-color: rgb(218, 239, 245);
+  border-radius: 25px;
+  border: 2px solid rgb(218, 239, 245);
+  padding: 1.2rem 2.6rem;
+  font-family: "QuickSand";
+  font-size: 1.6rem;
+  &:focus {
+    border: 2px solid rgb(60, 135, 165);
+    outline: none;
+  }
+}
+
+
+.logged-container {
+  width: 100%;
+  color: rgb(60, 135, 165);
+  align-self: flex-start;
+  padding: 1rem;
+  margin:1.2rem 0 2.2rem 2.6rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.forgot-pass {
+  margin-left: 4.6rem;
+  margin-bottom: 0.2rem;
+}
+
+
