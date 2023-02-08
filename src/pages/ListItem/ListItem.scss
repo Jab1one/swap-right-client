@@ -1,0 +1,117 @@
+@use "../../styles/partials/global" ;
+
+.submit-form-container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(254, 255, 250);
+}
+
+.submit-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 45%;
+  
+  padding: 2.6rem;
+  background-color: rgb(250, 254, 255);
+  box-shadow: rgba(160, 114, 54, 0.2) 0px 2px 8px 0px;
+  border-radius: 25px;
+
+  &__image-container {
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+
+
+  &__button {
+    width: 30%;
+    color:white;
+    padding: 1.2rem 2.6rem;
+    background-color: rgb(238, 184, 84);
+    border-radius: 25px;
+    border: 1px solid rgb(240, 192, 104);
+    font-family: "QuickSand";
+    font-size: 1.6rem;
+  
+    &:hover {
+      background-color: rgb(243, 114, 55);
+      box-shadow: rgba(160, 114, 54, 0.6) 2px 2px 8px 0px
+    }
+  }
+
+}
+
+.submit-form__item-description, .submit-form__item-title {
+  width: 100%;
+  background-color: rgb(218, 239, 245);
+  border-radius: 25px;
+  border: 2px solid rgb(218, 239, 245);
+  padding: 1.2rem 2.6rem;
+  font-family: "QuickSand";
+  font-size: 1.6rem;
+  margin-bottom: 2.6rem;
+  &:focus {
+    border: 2px solid rgb(60, 135, 165);
+    outline: none;
+  }
+}
+
+.submit-form__item-description {
+  resize: none;
+  height: 13rem;
+}
+
+.why-text {
+  color: rgb(60, 135, 165);
+  line-height: 2.2rem;
+  text-align: center;
+  margin: -1.2rem 0 3.6rem 0;
+  width:90%;
+}
+
+.image-container {
+  padding: 0 1.2rem;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin: 2.4rem 0 2.4rem 0;
+}
+
+.image-upload-preview {
+  margin: 2.4rem 0 2.4rem 0 ;
+  width: 30%;
+  border-radius: 3px;
+  border: 2px solid rgb(60, 135, 165);
+  box-shadow: rgba(38, 41, 54, 0.6) 2px 2px 8px 0px;
+}
+
+.image-upload-input {
+  display: none;
+}
+
+.image-upload-label {
+height: 4rem;
+margin-bottom: 3.4rem;
+width: 30%;
+color:rgb(60, 135, 165);
+padding-top: 0.8rem;
+text-align: center;
+background-color: white;
+border-radius: 25px;
+border: 1px solid rgb(60, 135, 165);
+font-family: "QuickSand";
+font-size: 1.6rem;
+
+&:hover {
+  box-shadow: rgba(85, 89, 117, 0.6) 2px 2px 8px 0px;
+  border:1px solid white;
+}
+}
