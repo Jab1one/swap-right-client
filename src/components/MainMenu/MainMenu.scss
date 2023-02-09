@@ -1,0 +1,85 @@
+.header {
+  position: sticky;
+  top: 0;
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  align-self: center;
+  margin: 0 auto 2rem auto;
+  background-color: rgb(250, 254, 255);
+  box-shadow: rgba(160, 114, 54, 0.2) 0px 2px 8px 0px;
+  border-radius: 0 0 10px 10px;
+  padding: 0 3.6rem;
+
+  &__logo {
+    width: 10rem;
+  }
+}
+.menu-container {
+  height: 100%;
+  color: rgb(60, 135, 165);
+  justify-self: center;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.menu {
+  height: 100%;
+  display: flex;
+  gap: 7rem;
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 0;
+
+  &__link-container {
+    height: 100%;
+    border-bottom: 3px solid transparent;
+  }
+}
+.icon-container {
+  width: 10rem;
+  display: flex;
+  justify-content: center;
+}
+
+.profile-icon {
+  width: 5rem;
+  height: 5rem;
+  background-color: aquamarine;
+  border-radius: 50%;
+  border: 2px solid rgb(33, 75, 92);
+}
+
+.menu-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__icon {
+    height: 4rem;
+  }
+}
+
+.menu-link__icon path {
+  fill: rgb(71, 126, 148);
+}
+
+.menu__link-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-item-text {
+  color: rgb(71, 126, 148);
+  font-weight: 600;
+  margin: 0;
+  opacity: 0;
+}
+
+.menu__link-container:hover .menu-item-text {
+  opacity: 1;
+}
