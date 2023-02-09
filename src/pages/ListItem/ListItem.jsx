@@ -1,6 +1,7 @@
 import "./ListItem.scss";
 import React, { useState } from "react";
 import axios from "axios";
+import MainMenu from "../../components/MainMenu/MainMenu";
 
 const serverUrl = process.env.SERVER_URL;
 
@@ -24,14 +25,19 @@ const ListItem = () => {
 
     try {
       const response = await axios.post({ serverUrl }, formData);
+      setImages([]);
+      setTitle("");
+      setDescription("");
     } catch (error) {
       console.error(error);
     }
   };
 
   return (
+    <>
+    <MainMenu />
     <div className="submit-form-container">
-      <form action="submit" className="submit-form">
+      <form onSubmit={handleSubmit} className="submit-form">
         <div className="submit-form__image-container">
           <div className="image-container">
             {images.map((image, index) => (
@@ -86,6 +92,7 @@ const ListItem = () => {
         </button>
       </form>
     </div>
+    </>
   );
 };
 
