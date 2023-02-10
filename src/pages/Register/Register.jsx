@@ -4,8 +4,8 @@ import logo from "../../assets/images/right4.png"
 
 const Register = ()=> {
   return (
-    <div className="login-form-container">
-      <form action="submit" className="login-form">
+    <div className="register-form-container">
+      <form action="submit" className="register-form">
 
       <img src={logo} alt="swap-right logo" className="logo-img"></img>
 
@@ -16,18 +16,18 @@ const Register = ()=> {
           <input type='text' className="last-name" id="lastname" placeholder="Your last-name" required></input>
         </div>
 
-        <input type='text' className="login-form__email" id="email" placeholder="Your e-mail" required></input>
+        <input type='text' className="register-form__email" id="email" placeholder="Your e-mail" required></input>
 
-        <input type='text' className="login-form__username" id="username" placeholder="Choose your username" required></input>
+        <input type='text' className="register-form__username" id="username" placeholder="Choose your username" required></input>
         
-        <input type='password' className="login-form__password" id="password" placeholder="Choose your password" required></input>
+        <input type='password' className="register-form__password" id="password" placeholder="Choose your password" required></input>
 
-        <input type='password' className="login-form__password" id="password2" placeholder="Confirm your password" required></input>
+        <input type='password' className="register-form__password" id="password2" placeholder="Confirm your password" required></input>
 
-        <input type='text' className="login-form__postal-code" id="username" placeholder="Postal Code" required></input>
+        <input type='text' className="register-form__postal-code" id="username" placeholder="Postal Code" required></input>
          
         
-        <button type="submit" className="login-form__button">Register</button>
+        <button type="submit" className="register-form__button">Register</button>
 
       </form>
     </div>
