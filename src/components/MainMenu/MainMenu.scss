@@ -39,17 +39,22 @@
   }
 }
 .icon-container {
-  width: 10rem;
+  width: 4rem;
+  height: 4rem;
   display: flex;
   justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 50%;
+  border: 2px solid rgb(33, 75, 92);
+  background-color: rgb(33, 75, 92);
 }
 
 .profile-icon {
-  width: 5rem;
-  height: 5rem;
-  background-color: aquamarine;
-  border-radius: 50%;
-  border: 2px solid rgb(33, 75, 92);
+  font-size: 2rem;
+ font-weight: 600;
+ color: rgb(250, 254, 255);
+ background-color: rgb(33, 75, 92);
 }
 
 .menu-link {
@@ -58,13 +63,11 @@
   align-items: center;
 
   &__icon {
-    height: 4rem;
+    height: 6rem;
+    margin-bottom: 0.3rem;
   }
 }
 
-.menu-link__icon path {
-  fill: rgb(71, 126, 148);
-}
 
 .menu__link-container {
   position: relative;
@@ -74,7 +77,7 @@
 }
 
 .menu-item-text {
-  color: rgb(71, 126, 148);
+  color: rgb(245, 103, 103);
   font-weight: 600;
   margin: 0;
   opacity: 0;
@@ -82,4 +85,10 @@
 
 .menu__link-container:hover .menu-item-text {
   opacity: 1;
+}
+
+.profile-container {
+  width:10rem;
+  display: flex;
+  justify-content: center;
 }
