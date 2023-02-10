@@ -33,15 +33,16 @@
     width: 30%;
     color:white;
     padding: 1.2rem 2.6rem;
-    background-color: rgb(238, 184, 84);
+    background-color: rgb(255, 189, 66);
     border-radius: 25px;
-    border: 1px solid rgb(240, 192, 104);
+    border: 1px solid rgb(255, 189, 66);
     font-family: "QuickSand";
     font-size: 1.6rem;
   
     &:hover {
       background-color: rgb(243, 114, 55);
-      box-shadow: rgba(160, 114, 54, 0.6) 2px 2px 8px 0px
+      box-shadow: rgba(160, 114, 54, 0.6) 2px 2px 8px 0px;
+      cursor: pointer;
     }
   }
 
@@ -106,12 +107,13 @@ padding-top: 0.8rem;
 text-align: center;
 background-color: white;
 border-radius: 25px;
-border: 1px solid rgb(60, 135, 165);
+border: 2px solid rgb(60, 135, 165);
 font-family: "QuickSand";
 font-size: 1.6rem;
 
 &:hover {
-  box-shadow: rgba(85, 89, 117, 0.6) 2px 2px 8px 0px;
-  border:1px solid white;
+  box-shadow: rgba(117, 115, 85, 0.6) 2px 2px 8px 0px;
+  border:2px solid rgb(255, 189, 66);
+  cursor: pointer;
 }
 }
