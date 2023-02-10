@@ -16,14 +16,8 @@ const MainMenu = () => {
       <img src={logo} alt="Logo" className="header__logo" />
       <nav className="menu-container">
         <ul className="menu">
-          {/* <li className="menu__link-container">
-            <Link to="/chat" className="menu-link">
-              <Chaticon className={location.pathname === "/chat" ? "menu-link__icon menu-link__icon-active":"menu-link__icon"}/>
-              <p className="menu-item-text">chat</p>
-            </Link>
-          </li> */}
           <li className="menu__link-container">
-            <Link to="/matches" className="menu-link">
+            <Link to="/my-matches" className="menu-link">
               <img src={heart} className={location.pathname === "/match" ? "menu-link__icon menu-link__icon-active":"menu-link__icon"}/>
               <p className="menu-item-text">match</p>
             </Link>

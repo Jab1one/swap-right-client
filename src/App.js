@@ -4,6 +4,7 @@ import Register from "./pages/Register/Register";
 import WelcomeScreen from "./pages/WelcomeScreen/WelcomeScreen";
 import ListItem from "./pages/ListItem/ListItem";
 import SwapMain from "./pages/SwapMain/SwapMain";
+import YourMatches from "./pages/YourMatches/YourMatches.";
 
 
 
@@ -18,6 +19,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/list-item" element={<ListItem />} />
           <Route path="/swap" element={<SwapMain />} />
+          <Route path="/my-matches" element={<YourMatches />} />
         </Routes>
       </BrowserRouter>
     </>

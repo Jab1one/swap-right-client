@@ -34,7 +34,7 @@ const ListItem = () => {
   };
 
   return (
-    <>
+    <div className="list-container">
     <MainMenu />
     <div className="submit-form-container">
       <form onSubmit={handleSubmit} className="submit-form">
@@ -92,7 +92,7 @@ const ListItem = () => {
         </button>
       </form>
     </div>
-    </>
+    </div>
   );
 };
 

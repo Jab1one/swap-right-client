@@ -1,15 +1,15 @@
 @use "../../styles/partials/global" ;
 
-.login-form-container {
+.register-form-container {
   height: 100vh;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(254, 255, 250);
+  background-color: rgb(142, 228, 102);
 }
 
-.login-form {
+.register-form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -29,10 +29,12 @@
     border: 1px solid rgb(255, 189, 66);
     font-family: "QuickSand";
     font-size: 1.6rem;
+    border: 2px solid transparent;
   
     &:hover {
       background-color: rgb(243, 114, 55);
-      box-shadow: rgba(160, 114, 54, 0.6) 2px 2px 8px 0px;
+      box-shadow: rgba(243, 114, 55, 0.6) 3px 3px, rgba(243, 114, 55, 0.3) 6px 6px, rgba(243, 114, 55, 0.2) 9px 9px;
+      border: 2px solid rgb(189, 50, 7);
       cursor: pointer;
     }
   }
@@ -42,7 +44,7 @@
   }
 }
 
-.login-form__username, .login-form__password, .first-name, .last-name, .login-form__postal-code, .login-form__email {
+.register-form__username, .register-form__password, .first-name, .last-name, .register-form__postal-code, .register-form__email {
   width: 100%;
   background-color: rgb(218, 239, 245);
   border-radius: 25px;
@@ -61,7 +63,7 @@
   gap:1.2rem;
 }
 
-.login-form__postal-code {
+.register-form__postal-code {
   width: 15rem;
   align-self: start; 
 }

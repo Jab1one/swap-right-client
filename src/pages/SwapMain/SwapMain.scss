@@ -1,5 +1,11 @@
 @use "../../styles/partials/global" ;
 
+.swap-container {
+  background-color: rgb(158, 232, 255);
+  height: 100vh;
+}
+
+
 .swap-card {
   width: 50rem;
   margin-left: auto;
@@ -8,7 +14,7 @@
   flex-direction: column;
   padding: 2.4rem;
   background-color: rgb(250, 254, 255);
-  box-shadow: rgba(160, 114, 54, 0.2) 0px 2px 8px 0px;
+  box-shadow: rgba(29, 58, 121, 0.2) 0px 4px 8px 0px;
   border-radius: 25px;
 }
 
@@ -27,6 +33,7 @@
 .slider-image {
   width: 45rem;
   height: 45rem;
+  border: 3px solid rgb(33, 75, 92);
   border-radius: 5px;
 }
 
@@ -48,7 +55,7 @@
   border: none;
   font-size: 5rem;
   position: absolute;
-  color: white;
+  color: rgb(79, 123, 218);
   top: 20rem;
 
   &:hover {

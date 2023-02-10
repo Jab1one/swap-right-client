@@ -19,7 +19,7 @@ const SwapMain = () => {
   
 
   return (
-    <>
+    <div className="swap-container">
       <MainMenu />
       <div className="swap-card">
         <div className="image-slider">
@@ -47,7 +47,7 @@ const SwapMain = () => {
           <img src={cross} alt="" className="cross"/>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
