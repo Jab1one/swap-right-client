@@ -79,3 +79,21 @@
 .logo-img {
   width: 20rem;
 }
+
+.invalid {
+  border-color: red;
+  margin-bottom: 0;
+}
+
+.hide-invalid-text {
+  display: none;
+}
+
+.invalid-text {
+  color: red;
+  margin: 0.5rem;
+}
+
+#password2.invalid {
+  margin-bottom: 2.6rem;
+}
