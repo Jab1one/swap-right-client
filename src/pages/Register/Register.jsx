@@ -1,11 +1,11 @@
 import "./Register.scss";
-import { useParams, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import logo from "../../assets/images/right4.png"
 import axios from "axios";
 
 const Register = ()=> {
-
+  const navigate= useNavigate();
   const [isvalid, setIsvalid] = useState(true);
 
   const handleSubmit = async (event) => {
@@ -25,13 +25,13 @@ const Register = ()=> {
     const password = event.target.password.value;
     const postalCode = event.target.postalCode.value;
 
-    event.target.firstname.value = "";
-    event.target.lastname.value = "";
-    event.target.email.value = "";
-    event.target.username.value = "";
-    event.target.password.value = "";
-    event.target.password2.value = "";
-    event.target.postalCode.value = "";
+    // event.target.firstname.value = "";
+    // event.target.lastname.value = "";
+    // event.target.email.value = "";
+    // event.target.username.value = "";
+    // event.target.password.value = "";
+    // event.target.password2.value = "";
+    // event.target.postalCode.value = "";
 
     const newUser ={
       first_name: firstName,
@@ -44,11 +44,12 @@ const Register = ()=> {
 
     try {
       const response = await axios.post('http://localhost:8080/users', newUser);
-      console.log(response.data);
+      localStorage.setItem("token", response.data.token);
+      navigate("/swap");
     } catch (err) {
       console.log(err);
     }
-
+  
   }
 
 
