@@ -92,4 +92,8 @@
   width:10rem;
   display: flex;
   justify-content: center;
+
+  &:hover {
+    cursor: pointer;
+  }
 }

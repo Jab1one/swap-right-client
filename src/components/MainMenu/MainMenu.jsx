@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../../assets/images/right4.png";
 import jwt_decode from "jwt-decode";
 import "./MainMenu.scss";
@@ -9,9 +9,15 @@ import swap from "../../assets/images/phone.png";
 import shelves from "../../assets/images/shelves.png"
 
 const MainMenu = () => {
+  const navigate = useNavigate();
   const [userInitials, setUserInitials] = useState("")
   const [token, setToken] = useState("");
   const location = useLocation();
+
+  const handleLogout = ()=> {
+    localStorage.removeItem("token");
+    navigate("/");
+  }
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -38,7 +44,7 @@ const MainMenu = () => {
           <li className="menu__link-container">
             <Link to="/my-matches" className="menu-link">
               <img src={heart} className={location.pathname === "/match" ? "menu-link__icon menu-link__icon-active":"menu-link__icon"}/>
-              <p className="menu-item-text">match</p>
+              <p className="menu-item-text">matches</p>
             </Link>
           </li>
           <li className="menu__link-container">
@@ -55,7 +61,7 @@ const MainMenu = () => {
           </li>
         </ul>
       </nav>
-      <div className="profile-container">
+      <div className="profile-container" onClick={handleLogout}>
         <div className="icon-container">
           <p className="profile-icon" >{userInitials}</p>
         </div>
