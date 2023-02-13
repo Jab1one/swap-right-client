@@ -1,22 +1,78 @@
-import "./SwapMain.scss";
-import React, { useState } from "react";
-import axios from "axios";
-import MainMenu from "../../components/MainMenu/MainMenu";
-import heart from "../../assets/images/2.png"
-import cross from "../../assets/images/5.png"
 
-let images = ["https://picsum.photos/id/237/450/450", "https://picsum.photos/id/239/450/450", "https://picsum.photos/id/238/450/450"]
+import "./SwapMain.scss";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import jwt_decode from "jwt-decode";
+import MainMenu from "../../components/MainMenu/MainMenu";
+import heart from "../../assets/images/2.png";
+import cross from "../../assets/images/5.png";
+
 const SwapMain = () => {
- 
+
+  const [loading, setLoading] = useState(true);
+
+  const [items, setItems] = useState([]);
+  const [currentItemIndex, setCurrentItemIndex] = useState(0);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const handlePrevImage = ()=> {
-    setCurrentImageIndex(currentImageIndex -1);
+  const handlePrevImage = () => {
+    setCurrentImageIndex(currentImageIndex - 1);
+  };
+  const handleNextImage = () => {
+    setCurrentImageIndex(currentImageIndex + 1);
+  };
+  const handlePrevItem = () => {
+    setCurrentItemIndex(currentItemIndex - 1);
+  };
+  const handleNextItem = () => {
+    if (currentItemIndex === items.length - 1) {
+      return;
+    }
+    setCurrentItemIndex(currentItemIndex + 1);
+  };
+  const handleNextItemHeart = async () => {
+    const token = localStorage.getItem("token");
+    const headers = {
+      Authorization: `Bearer ${token}`,
+    };
+    try {
+      const result = await axios.post(
+        `http://localhost:8080/likes`,
+        { itemId: items[currentItemIndex].item_id },
+        { headers }
+      );
+      console.log(result);
+      if (currentItemIndex !== items.length - 1) {
+        setCurrentItemIndex(currentItemIndex + 1);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const token = localStorage.getItem("token");
+      const decoded = jwt_decode(token);
+      console.log(decoded);
+      const headers = {
+        Authorization: `Bearer ${token}`,
+      };
+      const result = await axios.get(
+        "http://localhost:8080/items?_expand=images&userId=notMyId",
+        { headers }
+      );
+      setItems(result.data);
+      setLoading(false);
+      console.log(result.data);
+    };
+
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
   }
-  const handleNextImage = ()=> {
-    setCurrentImageIndex(currentImageIndex +1);
-  }
-  
-  
+
 
   return (
     <div className="swap-container">
@@ -24,27 +80,44 @@ const SwapMain = () => {
       <div className="swap-card">
         <div className="image-slider">
           <div className="image-slider__image-container">
-            <img src={images[currentImageIndex]} alt="slider" className="slider-image" />
+              <img
+                src={items[currentItemIndex].images[currentImageIndex]}
+                alt="slider"
+                className="slider-image"
+              />
           </div>
-            <button className="left-arrow-button" disabled={currentImageIndex === 0} onClick={handlePrevImage} >
+          <button
+            className="left-arrow-button"
+            disabled={currentImageIndex === 0}
+            onClick={handlePrevImage}
+          >
             &#x276E;
-            </button>
-            <div className="dot-container">
-              {images.reverse().map((image, index) => (
-                <span key={image} className= {`dot ${index === currentImageIndex ? 'dot-active' : ''}`} />
-              ))}
-            </div>
-            <button className="right-arrow-button" disabled={currentImageIndex === images.length -1} onClick={handleNextImage} >
+          </button>
+          <div className="dot-container">
+            {items[currentItemIndex].images.reverse().map((image, index) => (
+              <span
+                key={image}
+                className={`dot ${
+                  index === currentImageIndex ? "dot-active" : ""
+                }`}
+              />
+            ))}
+          </div>
+          <button
+            className="right-arrow-button"
+            disabled={
+              currentImageIndex === items[currentItemIndex].images.length - 1
+            }
+            onClick={handleNextImage}
+          >
             &#x276F;
-            </button>
+          </button>
         </div>
-        <h3 className="itemt-title">This is a test</h3>
-        <p>This is a long drawn description of the listed item for styling purposes blahh blahh blahh yadiaydiya sdhfgkjshdfgkjhskdjhfgkjhsdfg klsdjfhg
-        jasdhfkjashdjfh askjdhf asdjkfhas dfjhasd khsdf hj ajsdhf aksdf kjdf kasdhf 
-        </p>
+        <h3 className="itemt-title">{items[currentItemIndex].title}</h3>
+        <p>{items[currentItemIndex].description}</p>
         <div className="choice-container">
-          <img src={heart} alt="" className="heart"/>
-          <img src={cross} alt="" className="cross"/>
+          <img src={heart} alt="" className="heart" onClick={handleNextItemHeart} />
+          <img src={cross} alt="" className="cross" onClick={handleNextItem} />
         </div>
       </div>
     </div>
@@ -52,3 +125,4 @@ const SwapMain = () => {
 };
 
 export default SwapMain;
+

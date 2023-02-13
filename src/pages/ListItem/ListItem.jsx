@@ -2,6 +2,7 @@ import "./ListItem.scss";
 import React, { useState } from "react";
 import axios from "axios";
 import MainMenu from "../../components/MainMenu/MainMenu";
+import FormData from 'form-data'
 
 const serverUrl = process.env.SERVER_URL;
 
@@ -18,20 +19,26 @@ const ListItem = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const formData = new FormData();
-    formData.append("title", title);
-    formData.append("description", description);
-    images.forEach((image) => formData.append("images", image));
 
     try {
-      const response = await axios.post({ serverUrl }, formData);
-      setImages([]);
+      const token = localStorage.getItem("token");
+      const config = {
+        headers: {
+          "Authorization": `Bearer ${token}`
+        }
+      };
+      const response = await axios.post(`http://localhost:8080/items`, {
+        title,
+        description
+      }, config);
       setTitle("");
       setDescription("");
     } catch (error) {
       console.error(error);
     }
   };
+
+  
 
   return (
     <div className="list-container">
