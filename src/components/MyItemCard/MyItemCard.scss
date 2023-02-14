@@ -1,0 +1,43 @@
+.card-container {
+  // height: 18rem;
+  margin-bottom: 4rem;
+  width: 80%;
+  background-color: rgb(255, 255, 255);
+  border-radius: 20px;
+  display: flex;
+  justify-content:space-between ;
+  align-items: center;
+  padding: 2rem 2rem;
+  // border: 3px solid rgb(173, 153, 152);
+  position: relative;
+  
+  &:hover {
+    box-shadow:none;
+    transform: scale(105%);
+  }
+
+  &__text {
+    width:60%;
+    padding: 0 2rem;
+    border-left: 2px solid rgb(245, 213, 212);
+  }
+
+  &__delete {
+    position:absolute;
+    height: 2rem;
+    width: 2rem;
+    right: 2rem;
+    top: 2rem;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__image {
+    height: 15rem;
+    border-radius: 10px;
+    margin-right: 2rem;
+  }
+}
+

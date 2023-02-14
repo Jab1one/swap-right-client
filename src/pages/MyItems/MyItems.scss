@@ -1,0 +1,13 @@
+.my-items-container {
+  background-color: rgb(252, 123, 119);
+  height: 100vh;
+}
+.cards-container {
+  margin-top: 10rem;
+  display: flex;
+  align-items: center;
+  // justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  background-color: rgb(252, 123, 119);
+}
