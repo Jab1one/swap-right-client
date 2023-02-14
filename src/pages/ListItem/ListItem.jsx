@@ -1,5 +1,5 @@
 import "./ListItem.scss";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import axios from "axios";
 import MainMenu from "../../components/MainMenu/MainMenu";
 import FormData from 'form-data'
@@ -7,6 +7,7 @@ import FormData from 'form-data'
 const serverUrl = process.env.SERVER_URL;
 
 const ListItem = () => {
+  const inputRef = useRef(null);
   const [images, setImages] = useState([]);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -17,34 +18,62 @@ const ListItem = () => {
     );
   };
 
+  // const handleSubmit = async (event) => {
+  //   event.preventDefault();
+
+  //   try {
+  //     const token = localStorage.getItem("token");
+  //     const config = {
+  //       headers: {
+  //         "Authorization": `Bearer ${token}`
+  //       }
+  //     };
+  //     const response = await axios.post(`http://localhost:8080/items`, {
+  //       title,
+  //       description
+  //     }, config);
+  //     setTitle("");
+  //     setDescription("");
+  //     setImages([]);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+  
     try {
       const token = localStorage.getItem("token");
       const config = {
         headers: {
-          "Authorization": `Bearer ${token}`
+          "Authorization": `Bearer ${token}`,
+        //  'content-type': 'multipart/form-data'
         }
       };
-      const response = await axios.post(`http://localhost:8080/items`, {
-        title,
-        description
-      }, config);
+  
+      const formData = new FormData();
+      Array.from(inputRef.current.files).forEach((file) => {
+        formData.append("photos", file);
+      });
+      formData.append("title", title);
+      formData.append("description", description);
+  
+      const response = await axios.post(`http://localhost:8080/items`, formData, config);
       setTitle("");
       setDescription("");
+      setImages([]);
     } catch (error) {
       console.error(error);
     }
   };
-
   
 
   return (
     <div className="list-container">
     <MainMenu />
     <div className="submit-form-container">
-      <form onSubmit={handleSubmit} className="submit-form">
+      <form onSubmit={handleSubmit} className="submit-form" encType="multipart/form-data">
         <div className="submit-form__image-container">
           <div className="image-container">
             {images.map((image, index) => (
@@ -61,8 +90,10 @@ const ListItem = () => {
             <input
               type="file"
               onChange={handleImageUpload}
+              name='photos'
               multiple
               className="image-upload-input"
+              ref={inputRef}
             />
           </label>
         </div>

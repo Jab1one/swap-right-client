@@ -20,9 +20,7 @@ const SwapMain = () => {
   const handleNextImage = () => {
     setCurrentImageIndex(currentImageIndex + 1);
   };
-  const handlePrevItem = () => {
-    setCurrentItemIndex(currentItemIndex - 1);
-  };
+  
   const handleNextItem = () => {
     if (currentItemIndex === items.length - 1) {
       return;
@@ -62,6 +60,7 @@ const SwapMain = () => {
         { headers }
       );
       setItems(result.data);
+      console.log(result.data);
       setLoading(false);
       console.log(result.data);
     };
@@ -74,14 +73,21 @@ const SwapMain = () => {
   }
 
 
+  let urlbad = items[currentItemIndex]["images_url"];
+  let urls = JSON.parse(urlbad);
+  urls = urls.map(path => path.replace(/\\/g, '/'));
+  urls = urls.map(url => url.replace('public/', ''));
+  console.log(urls);
+
   return (
     <div className="swap-container">
       <MainMenu />
       <div className="swap-card">
         <div className="image-slider">
           <div className="image-slider__image-container">
+          
               <img
-                src={items[currentItemIndex].images[currentImageIndex]}
+                src={`http://localhost:8080/${urls[currentImageIndex]}`}
                 alt="slider"
                 className="slider-image"
               />
@@ -94,7 +100,7 @@ const SwapMain = () => {
             &#x276E;
           </button>
           <div className="dot-container">
-            {items[currentItemIndex].images.reverse().map((image, index) => (
+            {urls.reverse().map((image, index) => (
               <span
                 key={image}
                 className={`dot ${
@@ -106,7 +112,7 @@ const SwapMain = () => {
           <button
             className="right-arrow-button"
             disabled={
-              currentImageIndex === items[currentItemIndex].images.length - 1
+              currentImageIndex === items[currentItemIndex].images.length 
             }
             onClick={handleNextImage}
           >
