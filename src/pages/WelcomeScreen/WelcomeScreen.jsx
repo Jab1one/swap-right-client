@@ -1,8 +1,8 @@
-import "./WelcomeScreen.scss"
-import logo from "../../assets/images/right4.png"
+import "./WelcomeScreen.scss";
+import logo from "../../assets/images/right4.png";
 import { Link } from "react-router-dom";
 
-const WelcomeScreen = ()=> {
+const WelcomeScreen = () => {
   return (
     <div className="welcome-card">
       <div className="welcome-container">
@@ -11,10 +11,20 @@ const WelcomeScreen = ()=> {
         </div>
       </div>
       <div className="links-container">
-        <p className="login">Please <Link className="login-link" to="/login">login</Link> or <Link className="login-link" to="/register">register</Link> to continue</p>
+        <p className="login">
+          Please{" "}
+          <Link className="login-link" to="/login">
+            login
+          </Link>{" "}
+          or{" "}
+          <Link className="login-link" to="/register">
+            register
+          </Link>{" "}
+          to continue
+        </p>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default WelcomeScreen;

@@ -1,29 +1,43 @@
+@use "../../styles/partials/global";
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/media" as *;
+@use "../../styles/partials/variables" as *;
+
 .card-container {
-  // height: 18rem;
   margin-bottom: 4rem;
   width: 80%;
   background-color: rgb(255, 255, 255);
   border-radius: 20px;
   display: flex;
-  justify-content:space-between ;
+  justify-content: center;
   align-items: center;
   padding: 2rem 2rem;
-  // border: 3px solid rgb(173, 153, 152);
   position: relative;
-  
+  flex-wrap: wrap;
+  min-width: 30rem;
+  max-width: 120rem;
+
+  @include tablet {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+
   &:hover {
-    box-shadow:none;
+    box-shadow: none;
     transform: scale(105%);
   }
 
   &__text {
-    width:60%;
+    width: 60%;
     padding: 0 2rem;
-    border-left: 2px solid rgb(245, 213, 212);
+    width: 100%;
+    @include tablet {
+      border-left: 2px solid rgb(245, 213, 212);
+    }
   }
 
   &__delete {
-    position:absolute;
+    position: absolute;
     height: 2rem;
     width: 2rem;
     right: 2rem;
@@ -40,4 +54,3 @@
     margin-right: 2rem;
   }
 }
-

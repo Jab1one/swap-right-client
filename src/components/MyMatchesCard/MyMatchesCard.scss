@@ -1,0 +1,51 @@
+@use "../../styles/partials/global";
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/media" as *;
+@use "../../styles/partials/variables" as *;
+
+.match-card-container {
+  margin-bottom: 4rem;
+  width: 70%;
+  background-color: rgb(255, 255, 255);
+  border-radius: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 2rem 4rem 2rem 2rem;
+  position: relative;
+  min-width: 30rem;
+  max-width: 100rem;
+
+  &:hover {
+    box-shadow: none;
+    transform: scale(105%);
+  }
+
+  &__text {
+    width: 60%;
+    padding: 0 2rem;
+    border-left: 2px solid rgb(245, 213, 212);
+  }
+
+  &__delete {
+    position: absolute;
+    height: 2rem;
+    width: 2rem;
+    right: 1.5rem;
+    top: 1.5rem;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__image {
+    height: 10rem;
+    border-radius: 10px;
+    margin-right: 2rem;
+    background-color: rgb(73, 182, 182);
+    padding: 1rem;
+    border-radius: 50%;
+    margin-right: 5rem;
+  }
+}

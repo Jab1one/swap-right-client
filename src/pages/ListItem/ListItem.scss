@@ -1,10 +1,12 @@
-@use "../../styles/partials/global" ;
+@use "../../styles/partials/global";
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/media" as *;
+@use "../../styles/partials/variables" as *;
 
 .list-container {
   height: 100vh;
   background-color: rgb(252, 253, 154);
 }
-
 
 .submit-form-container {
   height: 80vh;
@@ -19,12 +21,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 45%;
-  
+  width: 85%;
   padding: 2.6rem;
   background-color: rgb(250, 254, 255);
   box-shadow: rgba(160, 114, 54, 0.2) 0px 2px 8px 0px;
   border-radius: 25px;
+
+  @include tablet {
+    width: 45%;
+    min-width: 50rem;
+    max-width: 60rem;
+  }
 
   &__image-container {
     height: 30%;
@@ -34,10 +41,9 @@
     align-items: center;
   }
 
-
   &__button {
     width: 30%;
-    color:white;
+    color: white;
     padding: 1.2rem 2.6rem;
     background-color: rgb(255, 189, 66);
     border-radius: 25px;
@@ -45,18 +51,20 @@
     font-family: "QuickSand";
     font-size: 1.6rem;
     border: 2px solid transparent;
-  
+    min-width: 15rem;
+
     &:hover {
       background-color: rgb(243, 114, 55);
-      box-shadow: rgba(243, 114, 55, 0.6) 3px 3px, rgba(243, 114, 55, 0.3) 6px 6px, rgba(243, 114, 55, 0.2) 9px 9px;
+      box-shadow: rgba(243, 114, 55, 0.6) 3px 3px,
+        rgba(243, 114, 55, 0.3) 6px 6px, rgba(243, 114, 55, 0.2) 9px 9px;
       border: 2px solid rgb(189, 50, 7);
       cursor: pointer;
     }
   }
-
 }
 
-.submit-form__item-description, .submit-form__item-title {
+.submit-form__item-description,
+.submit-form__item-title {
   width: 100%;
   background-color: rgb(218, 239, 245);
   border-radius: 25px;
@@ -81,7 +89,7 @@
   line-height: 2.2rem;
   text-align: center;
   margin: -1.2rem 0 3.6rem 0;
-  width:90%;
+  width: 90%;
 }
 
 .image-container {
@@ -95,7 +103,7 @@
 }
 
 .image-upload-preview {
-  margin: 2.4rem 0 2.4rem 0 ;
+  margin: 2.4rem 0 2.4rem 0;
   width: 30%;
   border-radius: 3px;
   border: 2px solid rgb(60, 135, 165);
@@ -106,20 +114,22 @@
 }
 
 .image-upload-label {
-height: 4rem;
-margin-bottom: 3.4rem;
-width: 30%;
-color:rgb(60, 135, 165);
-padding-top: 0.8rem;
-text-align: center;
-background-color: white;
-border-radius: 25px;
-border: 2px solid rgb(60, 135, 165);
-font-family: "QuickSand";
-font-size: 1.6rem;
+  height: 4rem;
+  margin-bottom: 3.4rem;
+  width: 30%;
+  color: rgb(60, 135, 165);
+  padding-top: 0.8rem;
+  text-align: center;
+  background-color: white;
+  border-radius: 25px;
+  border: 2px solid rgb(60, 135, 165);
+  font-family: "QuickSand";
+  font-size: 1.6rem;
+  min-width: 15rem;
 
-&:hover {
-  box-shadow: rgba(60, 135, 165, 0.6) 3px 3px, rgba(60, 135, 165, 0.3) 6px 6px, rgba(60, 135, 165, 0.2) 9px 9px;
-  cursor: pointer;
-}
+  &:hover {
+    box-shadow: rgba(60, 135, 165, 0.6) 3px 3px, rgba(60, 135, 165, 0.3) 6px 6px,
+      rgba(60, 135, 165, 0.2) 9px 9px;
+    cursor: pointer;
+  }
 }
