@@ -1,14 +1,11 @@
 import "./YourMatches.scss";
-import React, { useState, useEffect
- } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import MainMenu from "../../components/MainMenu/MainMenu";
-import MyItemCard from "../../components/MyItemCard/MyItemCard";
+import MyMatchesCard from "../../components/MyMatchesCard/MyMatchesCard";
 import DeleteModal from "../../components/DeleteModal/DeleteModal";
 
-const serverUrl = process.env.SERVER_URL;
-
-
+let url = process.env.SERVER_URL;
 
 const YourMatches = () => {
   const [modalIsOpen, setIsOpen] = React.useState(false);
@@ -20,7 +17,7 @@ const YourMatches = () => {
     setIsOpen(true);
     setSelectedid(id);
   };
-  
+
   const closeModal = () => {
     setIsOpen(false);
   };
@@ -31,11 +28,11 @@ const YourMatches = () => {
       Authorization: `Bearer ${token}`,
     };
     try {
-      console.log(token)
       const result = await axios.get(
         `http://localhost:8080/matches/my-matches`,
         { headers }
       );
+
       setMyMatches(result.data);
       setLoading(false);
     } catch (error) {
@@ -44,7 +41,6 @@ const YourMatches = () => {
   };
 
   const handleDelete = async () => {
-    console.log(selectedid)
     try {
       await axios.delete(`http://localhost:8080/matches/${selectedid}`);
       closeModal();
@@ -57,7 +53,7 @@ const YourMatches = () => {
   useEffect(() => {
     getMyMatches();
   }, []);
-  
+
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -69,23 +65,23 @@ const YourMatches = () => {
         openModal={openModal}
         closeModal={closeModal}
         handleDelete={handleDelete}
-        type={"Item"}
-        type2={" list of warehouses"}
+        text="match"
       />
       <div className="my-matches-container">
         <MainMenu />
         <div className="my-matches-container__cards-container">
           {myMatches.map((match) => {
-            
             return (
-              <MyItemCard 
-                
+              <MyMatchesCard
+                openModal={openModal}
+                name={match.other_user_name}
+                email={match.other_user_email}
               />
             );
           })}
         </div>
       </div>
-    </> 
+    </>
   );
 };
 

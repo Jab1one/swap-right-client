@@ -1,4 +1,3 @@
-
 import "./SwapMain.scss";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
@@ -6,21 +5,25 @@ import jwt_decode from "jwt-decode";
 import MainMenu from "../../components/MainMenu/MainMenu";
 import heart from "../../assets/images/2.png";
 import cross from "../../assets/images/5.png";
+import ppl from "../../assets/images/ppl.png";
+
+let url = process.env.SERVER_URL;
 
 const SwapMain = () => {
-
   const [loading, setLoading] = useState(true);
 
   const [items, setItems] = useState([]);
   const [currentItemIndex, setCurrentItemIndex] = useState(0);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [newMatch, setNewMatch] = useState(null);
+
   const handlePrevImage = () => {
     setCurrentImageIndex(currentImageIndex - 1);
   };
   const handleNextImage = () => {
     setCurrentImageIndex(currentImageIndex + 1);
   };
-  
+
   const handleNextItem = () => {
     if (currentItemIndex === items.length - 1) {
       return;
@@ -38,7 +41,11 @@ const SwapMain = () => {
         { itemId: items[currentItemIndex].item_id },
         { headers }
       );
-      console.log(result);
+
+      if (result.data.user1_name && result.data.user2_name) {
+        setNewMatch(result.data);
+      }
+
       if (currentItemIndex !== items.length - 1) {
         setCurrentItemIndex(currentItemIndex + 1);
       }
@@ -51,7 +58,7 @@ const SwapMain = () => {
     const fetchData = async () => {
       const token = localStorage.getItem("token");
       const decoded = jwt_decode(token);
-      console.log(decoded);
+
       const headers = {
         Authorization: `Bearer ${token}`,
       };
@@ -60,9 +67,8 @@ const SwapMain = () => {
         { headers }
       );
       setItems(result.data);
-      console.log(result.data);
+
       setLoading(false);
-      console.log(result.data);
     };
 
     fetchData();
@@ -72,25 +78,38 @@ const SwapMain = () => {
     return <div>Loading...</div>;
   }
 
-
   let urlbad = items[currentItemIndex]["images_url"];
   let urls = JSON.parse(urlbad);
-  urls = urls.map(path => path.replace(/\\/g, '/'));
-  urls = urls.map(url => url.replace('public/', ''));
-  console.log(urls);
+  urls = urls.map((path) => path.replace(/\\/g, "/"));
+  urls = urls.map((url) => url.replace("public/", ""));
 
   return (
     <div className="swap-container">
       <MainMenu />
       <div className="swap-card">
+        {newMatch && (
+          <div className="custom-alert">
+            <img src={ppl} className="custom-alert__image" />
+            <h2 className="custom-alert__title">AWESOME!</h2>
+            <p className="custom-alert__text">
+              You and {newMatch.user2_name} liked each other's item. go to the
+              Matches tab to get in touch and finalize a swap!
+            </p>
+            <p
+              className="custom-alert__button"
+              onClick={() => setNewMatch(null)}
+            >
+              Got it
+            </p>
+          </div>
+        )}
         <div className="image-slider">
           <div className="image-slider__image-container">
-          
-              <img
-                src={`http://localhost:8080/${urls[currentImageIndex]}`}
-                alt="slider"
-                className="slider-image"
-              />
+            <img
+              src={`http://localhost:8080/${urls[currentImageIndex]}`}
+              alt="slider"
+              className="slider-image"
+            />
           </div>
           <button
             className="left-arrow-button"
@@ -99,21 +118,22 @@ const SwapMain = () => {
           >
             &#x276E;
           </button>
-          <div className="dot-container">
-            {urls.reverse().map((image, index) => (
-              <span
-                key={image}
-                className={`dot ${
-                  index === currentImageIndex ? "dot-active" : ""
-                }`}
-              />
-            ))}
-          </div>
+
+          {urls.length > 1 && (
+            <div className="dot-container">
+              {urls.reverse().map((image, index) => (
+                <span
+                  key={image}
+                  className={`dot ${
+                    index === currentImageIndex ? "dot-active" : ""
+                  }`}
+                />
+              ))}
+            </div>
+          )}
           <button
             className="right-arrow-button"
-            disabled={
-              currentImageIndex === items[currentItemIndex].images.length 
-            }
+            disabled={currentImageIndex === urls.length - 1}
             onClick={handleNextImage}
           >
             &#x276F;
@@ -122,7 +142,12 @@ const SwapMain = () => {
         <h3 className="itemt-title">{items[currentItemIndex].title}</h3>
         <p>{items[currentItemIndex].description}</p>
         <div className="choice-container">
-          <img src={heart} alt="" className="heart" onClick={handleNextItemHeart} />
+          <img
+            src={heart}
+            alt=""
+            className="heart"
+            onClick={handleNextItemHeart}
+          />
           <img src={cross} alt="" className="cross" onClick={handleNextItem} />
         </div>
       </div>
@@ -131,4 +156,3 @@ const SwapMain = () => {
 };
 
 export default SwapMain;
-

@@ -5,7 +5,7 @@ import cross from "../../assets/images/5.png";
 
 Modal.setAppElement("#root");
 
-const DeleteModal = ({ modalIsOpen, handleDelete, closeModal}) => {
+const DeleteModal = ({ modalIsOpen, handleDelete, closeModal, text }) => {
   return (
     <div>
       <Modal
@@ -22,11 +22,10 @@ const DeleteModal = ({ modalIsOpen, handleDelete, closeModal}) => {
             className="modal-container__close-icon"
             alt="close cross icon"
           />
-          <h2 className="modal-container__title">
-            Delete this item ?
-          </h2>
+          <h2 className="modal-container__title">Delete this {text} ?</h2>
           <p className="modal-container__text">
-            Please confirm that you'd like to permanently delete your item. You won't be able to undo this action.
+            Please confirm that you'd like to permanently delete your {text}.
+            You won't be able to undo this action.
           </p>
           <div className="modal-container__buttons-container">
             <button onClick={closeModal} className="cancel-button">

@@ -1,4 +1,7 @@
-@use "../../styles/partials/global" ;
+@use "../../styles/partials/global";
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/media" as *;
+@use "../../styles/partials/variables" as *;
 
 .welcome-card {
   height: 100vh;
@@ -7,7 +10,6 @@
   align-items: center;
   justify-content: center;
   background-color: rgb(255, 255, 255);
-  // background-image: url("../../assets/images/background.jpg");
   background-size: 50%;
 }
 
@@ -16,18 +18,22 @@
   background-color: rgb(250, 254, 255);
   flex-direction: column;
   margin: 6.6rem 0 2.4rem 0;
-  min-width: 40rem;
+  min-width: 28rem;
   width: 45%;
+  max-width: 60rem;
   align-items: center;
   box-shadow: rgba(160, 114, 54, 0.2) 0px 2px 8px 0px;
   border-radius: 25px;
-}
 
+  @include tablet {
+  }
+}
 
 .links-container {
   display: flex;
   justify-content: center;
-  min-width: 40rem;
+  min-width: 28rem;
+  padding: 0 1.8rem;
   border-radius: 30px;
   color: rgb(37, 77, 64);
 
@@ -39,7 +45,6 @@
   display: flex;
   justify-content: center;
   background-image: url("../../assets/images/right3.png");
-  width: 100%;
   animation: pulse 2s;
   animation-delay: 0.35s;
   animation-iteration-count: 1;
@@ -56,7 +61,7 @@
   }
 
   50% {
-    background-size:95%;
+    background-size: 95%;
     background-position: center;
     background-repeat: no-repeat;
   }
@@ -71,12 +76,12 @@
 .swap-logo {
   animation: bouncein 1.2s;
   animation-iteration-count: 1;
-
+  width: 90%;
 }
 
 @keyframes bouncein {
   0% {
-    transform : translateX(-270%);
+    transform: translateX(-270%);
     opacity: 0;
   }
 
@@ -86,8 +91,8 @@
   }
 
   75% {
-    transform : translateX(0%);
-    transform:skew(-15deg);
+    transform: translateX(0%);
+    transform: skew(-15deg);
   }
 
   100% {
@@ -96,10 +101,13 @@
 }
 
 .login {
+  font-family: "Quicksand";
+  font-size: 1.6rem;
+  line-height: 2.5rem;
 
-font-family: "Quicksand";
-font-size: 2rem;
-line-height: 2.5rem;
+  @include tablet {
+    font-size: 2rem;
+  }
 }
 
 .login-link {
