@@ -1,70 +1,61 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Swap Right
 
-## Available Scripts
+***IMPORTANT - TO RUN SWAP RIGHT YOU WILL ALSO NEED TO CLONE THE SERVER SIDE REPO CALLED: swap-right-server******
 
-In the project directory, you can run:
+Swap Right is a platform that simplifies the process of trading unwanted items. Users can create an account, post items they want to trade, and find potential matches through a randomized matching system.
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- User account creation
+- Item posting with images and descriptions
+- Randomized matching system
+- Trade details tracking
+- Security and privacy measures
+- User-friendly interface
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Tech Stack
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Swap Right is built using JavaScript, React, Node.js, and Express.js. The front-end is styled using HTML, CSS/SASS. The platform uses a MySQL database to store user data and JWT for authentication. Axios is used to make API calls. For some popups, the React Modal library is used.
+## Installation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+***This is a REACT/NODE/EXPRESS project***
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+to use Swap Right you will need to run:
 
-### `npm run eject`
+On swap-right-client:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- npm i react-router-dom
+- npm i react-modal
+- npm i axios
+- npm i jwt-decode
+- npm i form-data
+- npm i create-object-url
+- npm i sass
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+On swap-right-server:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- npm i bcrypt
+- npm i multer
+- npm i cors
+- npm i jsonwebtoken
+- npm i knex
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+    
+## Roadmap
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+This is a work in progress.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Coming soon:
 
-### Code Splitting
+- Implementation of the chat feature using Websockets.
+- AWS S3 for storage.
+- My settings page.
+- Google Maps API to implement a near me feature.
+- Bolster security & legal checks.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

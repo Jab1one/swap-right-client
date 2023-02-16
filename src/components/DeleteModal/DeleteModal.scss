@@ -1,4 +1,7 @@
+@use "../../styles/partials/global";
+@use "../../styles/partials/typography" as *;
 @use "../../styles/partials/media" as *;
+@use "../../styles/partials/variables" as *;
 
 .delete-modal {
   background-color: white;
@@ -117,8 +120,8 @@
 .delete-button {
   width: 16.3rem;
   height: 3.6rem;
-  background-color: rgb(240, 90, 90);
-  border: 1px solid rgb(240, 90, 90);
+  background-color: $backgroundSalmon;
+  border: 1px solid $backgroundSalmon;
   border-radius: 20px;
   color: white;
   text-align: center;

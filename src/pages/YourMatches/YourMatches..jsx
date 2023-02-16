@@ -5,7 +5,7 @@ import MainMenu from "../../components/MainMenu/MainMenu";
 import MyMatchesCard from "../../components/MyMatchesCard/MyMatchesCard";
 import DeleteModal from "../../components/DeleteModal/DeleteModal";
 
-let url = process.env.SERVER_URL;
+let url = process.env.REACT_APP_SERVER_URL;
 
 const YourMatches = () => {
   const [modalIsOpen, setIsOpen] = React.useState(false);
@@ -29,7 +29,7 @@ const YourMatches = () => {
     };
     try {
       const result = await axios.get(
-        `http://localhost:8080/matches/my-matches`,
+        `${url}matches/my-matches`,
         { headers }
       );
 
@@ -42,7 +42,7 @@ const YourMatches = () => {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`http://localhost:8080/matches/${selectedid}`);
+      await axios.delete(`${url}matches/${selectedid}`);
       closeModal();
       await getMyMatches();
     } catch (err) {

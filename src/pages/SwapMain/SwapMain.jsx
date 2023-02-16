@@ -7,7 +7,7 @@ import heart from "../../assets/images/2.png";
 import cross from "../../assets/images/5.png";
 import ppl from "../../assets/images/ppl.png";
 
-let url = process.env.SERVER_URL;
+let url = process.env.REACT_APP_SERVER_URL;
 
 const SwapMain = () => {
   const [loading, setLoading] = useState(true);
@@ -37,7 +37,7 @@ const SwapMain = () => {
     };
     try {
       const result = await axios.post(
-        `http://localhost:8080/likes`,
+        `${url}likes`,
         { itemId: items[currentItemIndex].item_id },
         { headers }
       );
@@ -63,7 +63,7 @@ const SwapMain = () => {
         Authorization: `Bearer ${token}`,
       };
       const result = await axios.get(
-        "http://localhost:8080/items?_expand=images&userId=notMyId",
+        `${url}items?_expand=images&userId=notMyId`,
         { headers }
       );
       setItems(result.data);
@@ -106,7 +106,7 @@ const SwapMain = () => {
         <div className="image-slider">
           <div className="image-slider__image-container">
             <img
-              src={`http://localhost:8080/${urls[currentImageIndex]}`}
+              src={`${url}${urls[currentImageIndex]}`}
               alt="slider"
               className="slider-image"
             />

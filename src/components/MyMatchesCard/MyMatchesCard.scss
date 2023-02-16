@@ -6,7 +6,7 @@
 .match-card-container {
   margin-bottom: 4rem;
   width: 70%;
-  background-color: rgb(255, 255, 255);
+  background-color: white;
   border-radius: 20px;
   display: flex;
   justify-content: flex-start;
@@ -24,7 +24,6 @@
   &__text {
     width: 60%;
     padding: 0 2rem;
-    border-left: 2px solid rgb(245, 213, 212);
   }
 
   &__delete {
@@ -43,7 +42,7 @@
     height: 10rem;
     border-radius: 10px;
     margin-right: 2rem;
-    background-color: rgb(73, 182, 182);
+    background-color: $lightTeal;
     padding: 1rem;
     border-radius: 50%;
     margin-right: 5rem;

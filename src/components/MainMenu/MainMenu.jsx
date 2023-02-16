@@ -37,7 +37,7 @@ const MainMenu = () => {
         alt="Logo"
         className="header__logo"
         onClick={() => {
-          navigate("/");
+          navigate("/swap");
         }}
       />
       <nav className="menu-container">
