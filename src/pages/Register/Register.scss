@@ -9,7 +9,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(142, 228, 102);
+  background-color: $registerGreen;
 }
 
 .register-form {
@@ -20,7 +20,7 @@
   min-width: 28rem;
   max-width: 70rem;
   padding: 2.6rem;
-  background-color: rgb(250, 254, 255);
+  background-color: $ultraLightBlue;
   box-shadow: rgba(160, 114, 54, 0.2) 0px 2px 8px 0px;
   border-radius: 25px;
 
@@ -28,19 +28,19 @@
     width: 30%;
     color: white;
     padding: 1.2rem 2.6rem;
-    background-color: rgb(255, 189, 66);
+    background-color: $buttonGold;
     border-radius: 25px;
-    border: 1px solid rgb(255, 189, 66);
+    border: 1px solid $buttonGold;
     font-family: "QuickSand";
     font-size: 1.6rem;
     border: 2px solid transparent;
     min-width: 15rem;
 
     &:hover {
-      background-color: rgb(243, 114, 55);
+      background-color: $buttonHoverBg;
       box-shadow: rgba(243, 114, 55, 0.6) 3px 3px,
         rgba(243, 114, 55, 0.3) 6px 6px, rgba(243, 114, 55, 0.2) 9px 9px;
-      border: 2px solid rgb(189, 50, 7);
+      border: 2px solid $buttonHoverBd;
       cursor: pointer;
     }
   }
@@ -57,15 +57,15 @@
 .register-form__postal-code,
 .register-form__email {
   width: 100%;
-  background-color: rgb(218, 239, 245);
+  background-color: $formBlue;
   border-radius: 25px;
-  border: 2px solid rgb(218, 239, 245);
+  border: 2px solid $formBlue;
   padding: 1.2rem 2.6rem;
   font-family: "QuickSand";
   font-size: 1.6rem;
   margin-bottom: 2.6rem;
   &:focus {
-    border: 2px solid rgb(60, 135, 165);
+    border: 2px solid $blueText;
     outline: none;
   }
 }
@@ -91,7 +91,7 @@
 }
 
 .why-text {
-  color: rgb(60, 135, 165);
+  color: $blueText;
   line-height: 2.2rem;
   text-align: center;
   margin: -1.2rem 0 3.6rem 0;

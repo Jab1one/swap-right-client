@@ -1,5 +1,12 @@
+@use "../../styles/partials/global";
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/media" as *;
+@use "../../styles/partials/variables" as *;
+
+
+
 .my-items-container {
-  background-color: rgb(252, 123, 119);
+  background-color: $myItemsBg;
   height: 100vh;
 }
 .cards-container {
@@ -8,5 +15,5 @@
   align-items: center;
   flex-direction: column;
   height: 100%;
-  background-color: rgb(252, 123, 119);
+  background-color: $myItemsBg;
 }

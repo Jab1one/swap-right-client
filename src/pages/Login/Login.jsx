@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import React, { useState } from "react";
 
-let url = process.env.SERVER_URL;
+let url = process.env.REACT_APP_SERVER_URL;
 
 const Login = () => {
   const navigate = useNavigate();
@@ -14,7 +14,7 @@ const Login = () => {
     event.preventDefault();
 
     try {
-      const response = await axios.post(`http://localhost:8080/users/login`, {
+      const response = await axios.post(`${url}users/login`, {
         username,
         password,
       });

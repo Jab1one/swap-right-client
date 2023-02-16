@@ -2,6 +2,8 @@ import React from "react";
 import "./MyItemCard.scss";
 import icon from "../../assets/images/5.png";
 
+let url = process.env.REACT_APP_SERVER_URL;
+
 const MyItemCard = (props) => {
   return (
     <div className="card-container" key={props.keyid}>
@@ -11,7 +13,7 @@ const MyItemCard = (props) => {
         onClick={() => props.openModal(props.id)}
       />
       <img
-        src={`http://localhost:8080/${props.url}`}
+        src={`${url}${props.url}`}
         className="card-container__image"
       />
       <div className="card-container__text">

@@ -13,7 +13,7 @@
   justify-content: space-around;
   align-self: center;
   margin: 0 auto 2rem auto;
-  background-color: rgb(250, 254, 255);
+  background-color: $headerBackground;
   box-shadow: rgba(66, 66, 66, 0.2) 0px 2px 8px 0px;
   border-radius: 0 0 10px 10px;
   padding: 0 3.6rem;
@@ -37,7 +37,6 @@
 }
 .menu-container {
   height: 100%;
-  color: rgb(60, 135, 165);
   justify-self: center;
   text-transform: uppercase;
   font-weight: 400;
@@ -67,15 +66,15 @@
   align-items: center;
   background-color: white;
   border-radius: 50%;
-  border: 2px solid rgb(33, 75, 92);
-  background-color: rgb(33, 75, 92);
+  border: 2px solid $darkBlue;
+  background-color: $darkBlue;
 }
 
 .profile-icon {
   font-size: 2rem;
   font-weight: 600;
   color: rgb(250, 254, 255);
-  background-color: rgb(33, 75, 92);
+  background-color: $darkBlue;
   text-transform: uppercase;
 }
 
@@ -103,7 +102,7 @@
 }
 
 .menu-item-text {
-  color: rgb(245, 103, 103);
+  color: $backgroundSalmon;
   font-weight: 600;
   margin: 0;
   opacity: 0;

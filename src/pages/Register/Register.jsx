@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import logo from "../../assets/images/right4.png";
 import axios from "axios";
 
-let url = process.env.SERVER_URL;
+let url = process.env.REACT_APP_SERVER_URL;
 
 const Register = () => {
   const navigate = useNavigate();
@@ -37,7 +37,7 @@ const Register = () => {
     };
 
     try {
-      const response = await axios.post("http://localhost:8080/users", newUser);
+      const response = await axios.post(`${url}users`, newUser);
       localStorage.setItem("token", response.data.token);
       navigate("/swap");
     } catch (err) {

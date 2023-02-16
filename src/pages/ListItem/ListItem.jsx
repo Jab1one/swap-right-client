@@ -4,7 +4,8 @@ import axios from "axios";
 import MainMenu from "../../components/MainMenu/MainMenu";
 import FormData from "form-data";
 
-let url = process.env.SERVER_URL;
+let url = process.env.REACT_APP_SERVER_URL;
+
 
 const ListItem = () => {
   const inputRef = useRef(null);
@@ -37,7 +38,7 @@ const ListItem = () => {
       formData.append("description", description);
 
       const response = await axios.post(
-        `http://localhost:8080/items`,
+        `${url}items`,
         formData,
         config
       );

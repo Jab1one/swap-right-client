@@ -5,7 +5,7 @@ import MainMenu from "../../components/MainMenu/MainMenu";
 import MyItemCard from "../../components/MyItemCard/MyItemCard";
 import DeleteModal from "../../components/DeleteModal/DeleteModal";
 
-let url = process.env.SERVER_URL;
+let url = process.env.REACT_APP_SERVER_URL;
 
 const MyItems = () => {
   const [modalIsOpen, setIsOpen] = React.useState(false);
@@ -28,7 +28,7 @@ const MyItems = () => {
       Authorization: `Bearer ${token}`,
     };
     try {
-      const result = await axios.get(`http://localhost:8080/items/my-items`, {
+      const result = await axios.get(`${url}items/my-items`, {
         headers,
       });
       setMyItems(result.data);
@@ -40,7 +40,7 @@ const MyItems = () => {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`http://localhost:8080/items/${selectedid}`);
+      await axios.delete(`${url}items/${selectedid}`);
       closeModal();
       await getMyItems();
     } catch (err) {
