@@ -1,0 +1,116 @@
+@use "../../styles/partials/global";
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/media" as *;
+@use "../../styles/partials/variables" as *;
+
+.welcome-card {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  background-size: 50%;
+}
+
+.welcome-container {
+  display: flex;
+  background-color: $ultraLightBlue;
+  flex-direction: column;
+  margin: 6.6rem 0 2.4rem 0;
+  min-width: 28rem;
+  width: 45%;
+  max-width: 60rem;
+  align-items: center;
+  box-shadow: rgba(160, 114, 54, 0.2) 0px 2px 8px 0px;
+  border-radius: 25px;
+
+  @include tablet {
+  }
+}
+
+.links-container {
+  display: flex;
+  justify-content: center;
+  min-width: 28rem;
+  padding: 0 1.8rem;
+  border-radius: 30px;
+  color: $darkBlue;
+
+  &:hover {
+    background-color: rgb(255, 249, 236);
+  }
+}
+.logo-container {
+  display: flex;
+  justify-content: center;
+  background-image: url("../../assets/images/right3.png");
+  animation: pulse 2s;
+  animation-delay: 0.35s;
+  animation-iteration-count: 1;
+  background-size: 75%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@keyframes pulse {
+  0% {
+    background-size: 75%;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  50% {
+    background-size: 95%;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  100% {
+    background-size: 75%;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+
+.swap-logo {
+  animation: bouncein 1.2s;
+  animation-iteration-count: 1;
+  width: 90%;
+}
+
+@keyframes bouncein {
+  0% {
+    transform: translateX(-270%);
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: skew(15deg);
+  }
+
+  75% {
+    transform: translateX(0%);
+    transform: skew(-15deg);
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.login {
+  font-family: "Quicksand";
+  font-size: 1.6rem;
+  line-height: 2.5rem;
+
+  @include tablet {
+    font-size: 2rem;
+  }
+}
+
+.login-link {
+  color: rgb(255, 120, 9);
+  cursor: pointer;
+}

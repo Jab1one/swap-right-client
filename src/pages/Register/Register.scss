@@ -1,0 +1,121 @@
+@use "../../styles/partials/global";
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/media" as *;
+@use "../../styles/partials/variables" as *;
+
+.register-form-container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $registerGreen;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 85%;
+  min-width: 28rem;
+  max-width: 70rem;
+  padding: 2.6rem;
+  background-color: $ultraLightBlue;
+  box-shadow: rgba(160, 114, 54, 0.2) 0px 2px 8px 0px;
+  border-radius: 25px;
+
+  &__button {
+    width: 30%;
+    color: white;
+    padding: 1.2rem 2.6rem;
+    background-color: $buttonGold;
+    border-radius: 25px;
+    border: 1px solid $buttonGold;
+    font-family: "QuickSand";
+    font-size: 1.6rem;
+    border: 2px solid transparent;
+    min-width: 15rem;
+
+    &:hover {
+      background-color: $buttonHoverBg;
+      box-shadow: rgba(243, 114, 55, 0.6) 3px 3px,
+        rgba(243, 114, 55, 0.3) 6px 6px, rgba(243, 114, 55, 0.2) 9px 9px;
+      border: 2px solid $buttonHoverBd;
+      cursor: pointer;
+    }
+  }
+
+  &__label {
+    margin-bottom: 0.2rem;
+  }
+}
+
+.register-form__username,
+.register-form__password,
+.first-name,
+.last-name,
+.register-form__postal-code,
+.register-form__email {
+  width: 100%;
+  background-color: $formBlue;
+  border-radius: 25px;
+  border: 2px solid $formBlue;
+  padding: 1.2rem 2.6rem;
+  font-family: "QuickSand";
+  font-size: 1.6rem;
+  margin-bottom: 2.6rem;
+  &:focus {
+    border: 2px solid $blueText;
+    outline: none;
+  }
+}
+.name-container {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  width: 100%;
+
+  @include tablet {
+    flex-wrap: nowrap;
+  }
+}
+
+.first-name,
+.last-name {
+  max-width: 100%;
+}
+
+.register-form__postal-code {
+  width: 15rem;
+  align-self: start;
+}
+
+.why-text {
+  color: $blueText;
+  line-height: 2.2rem;
+  text-align: center;
+  margin: -1.2rem 0 3.6rem 0;
+  width: 90%;
+}
+
+.logo-img {
+  width: 20rem;
+}
+
+.invalid {
+  border-color: red;
+  margin-bottom: 0;
+}
+
+.hide-invalid-text {
+  display: none;
+}
+
+.invalid-text {
+  color: red;
+  margin: 0.5rem;
+}
+
+#password2.invalid {
+  margin-bottom: 2.6rem;
+}

@@ -1,0 +1,139 @@
+@use "../../styles/partials/global";
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/media" as *;
+@use "../../styles/partials/variables" as *;
+
+.delete-modal {
+  background-color: white;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 20px;
+  position: absolute;
+  opacity: 2;
+
+  @include tablet {
+    border-radius: 15px;
+    width: 84%;
+    height: 26.2rem;
+    position: absolute;
+    top: 15.1rem;
+    left: 8%;
+    right: 8%;
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba($color: black, $alpha: 0.7);
+}
+
+.modal-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 6rem 3.6rem 4rem 3.6rem;
+  gap: 1.6rem;
+
+  @include tablet {
+    height: 100%;
+    padding: 4rem 6rem 4rem 6rem;
+    justify-content: space-between;
+  }
+
+  &__close-icon {
+    position: absolute;
+    right: 2rem;
+    top: 2rem;
+    width: 2rem;
+
+    @include tablet {
+      right: 2rem;
+    }
+  }
+
+  &__title {
+    font-size: 2.8rem;
+    line-height: 3.6rem;
+
+    @include tablet {
+      font-size: 3.2rem;
+      line-height: 4rem;
+      margin: 0;
+    }
+  }
+
+  &__text {
+    font-size: 1.5rem;
+    line-height: 2.8rem;
+
+    @include tablet {
+      font-size: 1.6rem;
+      line-height: 2.6rem;
+    }
+  }
+
+  &__buttons-container {
+    height: 100%;
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    justify-self: flex-end;
+    align-self: center;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 2.4rem;
+
+    @include tablet {
+      align-self: flex-end;
+      justify-content: flex-end;
+    }
+  }
+}
+
+.cancel-button {
+  width: 16.3rem;
+  height: 3.6rem;
+  border: 2px solid white;
+  background-color: white;
+  border-radius: 20px;
+  text-align: center;
+
+  &:hover {
+    color: black;
+    border-color: black;
+  }
+
+  @include tablet {
+    width: 7.2rem;
+    height: 3.8rem;
+    font-size: 1.4rem;
+  }
+}
+
+.delete-button {
+  width: 16.3rem;
+  height: 3.6rem;
+  background-color: $backgroundSalmon;
+  border: 1px solid $backgroundSalmon;
+  border-radius: 20px;
+  color: white;
+  text-align: center;
+
+  &:hover {
+    background-color: black;
+    border-color: black;
+  }
+
+  @include tablet {
+    width: 7.2rem;
+    height: 3.8rem;
+    font-size: 1.4rem;
+  }
+}

@@ -1,0 +1,20 @@
+@use "../../styles/partials/global";
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/media" as *;
+@use "../../styles/partials/variables" as *;
+
+
+.my-matches-container {
+  height: 100vh;
+  background-color: $matchesGreen;
+
+  &__cards-container {
+    background-color: $matchesGreen;
+    margin-top: 5rem;
+    display: flex;
+    align-items: center;
+
+    flex-direction: column;
+    height: 100%;
+  }
+}
