@@ -4,8 +4,10 @@ import axios from "axios";
 import MainMenu from "../../components/MainMenu/MainMenu";
 import MyMatchesCard from "../../components/MyMatchesCard/MyMatchesCard";
 import DeleteModal from "../../components/DeleteModal/DeleteModal";
+import { v4 as uuidv4 } from "uuid";
 
 let url = process.env.REACT_APP_SERVER_URL;
+let uuid = uuidv4();
 
 const YourMatches = () => {
   const [modalIsOpen, setIsOpen] = React.useState(false);
@@ -28,10 +30,7 @@ const YourMatches = () => {
       Authorization: `Bearer ${token}`,
     };
     try {
-      const result = await axios.get(
-        `${url}matches/my-matches`,
-        { headers }
-      );
+      const result = await axios.get(`${url}matches/my-matches`, { headers });
 
       setMyMatches(result.data);
       setLoading(false);
@@ -73,6 +72,8 @@ const YourMatches = () => {
           {myMatches.map((match) => {
             return (
               <MyMatchesCard
+                keyid={uuid}
+                key={uuid}
                 openModal={openModal}
                 name={match.other_user_name}
                 email={match.other_user_email}

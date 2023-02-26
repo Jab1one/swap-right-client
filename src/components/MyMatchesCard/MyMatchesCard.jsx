@@ -10,7 +10,7 @@ const MyMatchesCard = (props) => {
   return (
     <div
       className="match-card-container"
-      key={props.key}
+      key={props.keyid}
       onClick={handleCardClick}
     >
       <img
