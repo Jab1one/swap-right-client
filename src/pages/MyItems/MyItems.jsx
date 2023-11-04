@@ -55,8 +55,10 @@ const MyItems = () => {
   if (loading) {
     return (
     <>
-      <MainMenu />
-      <div className="myitems-load">Loading...</div>
+      <div className="myitems-load">
+        <p>Loading...</p>
+        <MainMenu />
+      </div>
     </>
     )
   }
