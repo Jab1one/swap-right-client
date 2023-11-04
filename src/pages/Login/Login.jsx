@@ -6,10 +6,8 @@ import React, { useState } from "react";
 
 let url = process.env.REACT_APP_SERVER_URL;
 
-const customAxios = axios.create({
-  httpsAgent: new https.Agent({
-    rejectUnauthorized: false,
-  }),
+axios.defaults.httpsAgent = new https.Agent({
+  rejectUnauthorized: false,
 });
 
 const Login = () => {
@@ -21,7 +19,7 @@ const Login = () => {
     event.preventDefault();
 
     try {
-      const response = await customAxios.post(`${url}users/login`, {
+      const response = await axios.post(`${url}users/login`, {
         username,
         password,
       });
