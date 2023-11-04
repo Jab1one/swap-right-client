@@ -52,16 +52,16 @@ const MyItems = () => {
     getMyItems();
   }, []);
 
-  // if (loading) {
-  //   return (
-  //   <>
-  //     <div className="myitems-load">
-  //       <p>Loading...</p>
-  //       <MainMenu />
-  //     </div>
-  //   </>
-  //   )
-  // }
+  if (loading) {
+    return (
+    <>
+      <div className="myitems-load">
+        <p>Loading...</p>
+        <MainMenu />
+      </div>
+    </>
+    )
+  }
 
   return (
     <>

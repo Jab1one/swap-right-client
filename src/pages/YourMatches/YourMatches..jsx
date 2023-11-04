@@ -53,14 +53,14 @@ const YourMatches = () => {
     getMyMatches();
   }, []);
 
-  // if (loading) {
-  //   return (
-  //   <>
-  //     <MainMenu />
-  //     <div className="mymatches-load">Loading...</div>
-  //   </>
-  //   )
-  // }
+  if (loading) {
+    return (
+    <>
+      <MainMenu />
+      <div className="mymatches-load">Loading...</div>
+    </>
+    )
+  }
 
   return (
     <>
