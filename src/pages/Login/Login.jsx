@@ -2,7 +2,7 @@ import "./Login.scss";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import React, { useState } from "react";
-import https from "https";
+
 
 let url = process.env.REACT_APP_SERVER_URL;
 
@@ -21,14 +21,11 @@ const Login = () => {
     event.preventDefault();
 
     try {
-     
-     const response = await customAxios.post(`${url}users/login`, {
+      const response = await customAxios.post(`${url}users/login`, {
         username,
         password,
-      },
-      {
-        httpsAgent: agent, // Use the custom agent
       });
+
       if (response.status === 200) {
         localStorage.setItem("token", response.data.token);
         navigate("/swap");
