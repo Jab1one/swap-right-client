@@ -29,7 +29,7 @@ const Login = () => {
     }
   };
 
-  
+
   return (
     <div className="login-form-container">
       <form action="submit" className="login-form" onSubmit={handleSubmit}>
@@ -40,6 +40,7 @@ const Login = () => {
           placeholder="Username"
           value={username}
           onChange={(event) => setUsername(event.target.value)}
+          autoComplete="username"
           required
         ></input>
 
@@ -51,6 +52,7 @@ const Login = () => {
           value={password}
           onChange={(event) => setPassword(event.target.value)}
           required
+          autocomplete="current-password"
         ></input>
 
         <div className="logged-container">
