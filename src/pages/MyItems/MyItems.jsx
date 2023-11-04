@@ -53,7 +53,12 @@ const MyItems = () => {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+    <>
+      <MainMenu />
+      <div className="myitems-load">Loading...</div>
+    </>
+    )
   }
 
   return (

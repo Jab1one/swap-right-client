@@ -75,7 +75,12 @@ const SwapMain = () => {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+    <>
+      <MainMenu />
+      <div className="swap-load">Loading...</div>
+    </>
+    )
   }
 
   let urlbad = items[currentItemIndex]["images_url"];

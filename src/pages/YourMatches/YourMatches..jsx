@@ -54,7 +54,12 @@ const YourMatches = () => {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+    <>
+      <MainMenu />
+      <div className="mymatches-load">Loading...</div>
+    </>
+    )
   }
 
   return (
