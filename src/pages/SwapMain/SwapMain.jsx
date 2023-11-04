@@ -74,14 +74,14 @@ const SwapMain = () => {
     fetchData();
   }, []);
 
-  if (loading) {
-    return (
-    <>
-      <MainMenu />
-      <div className="swap-load">Loading...</div>
-    </>
-    )
-  }
+  // if (loading) {
+  //   return (
+  //   <>
+  //     <MainMenu />
+  //     <div className="swap-load">Loading...</div>
+  //   </>
+  //   )
+  // }
 
   let urlbad = items[currentItemIndex]["images_url"];
   let urls = JSON.parse(urlbad);
