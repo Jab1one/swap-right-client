@@ -14,9 +14,16 @@ const Login = () => {
     event.preventDefault();
 
     try {
+      const agent = new https.Agent({
+      rejectUnauthorized: false,
+    });
+
       const response = await axios.post(`${url}users/login`, {
         username,
         password,
+      },
+      {
+        httpsAgent: agent, // Use the custom agent
       });
       if (response.status === 200) {
         localStorage.setItem("token", response.data.token);
