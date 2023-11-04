@@ -6,10 +6,6 @@ import React, { useState } from "react";
 
 let url = process.env.REACT_APP_SERVER_URL;
 
-axios.defaults.httpsAgent = new https.Agent({
-  rejectUnauthorized: false,
-});
-
 const Login = () => {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
@@ -33,6 +29,7 @@ const Login = () => {
     }
   };
 
+  
   return (
     <div className="login-form-container">
       <form action="submit" className="login-form" onSubmit={handleSubmit}>
